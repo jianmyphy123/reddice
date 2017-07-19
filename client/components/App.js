@@ -1,7 +1,14 @@
 import React from 'react';
+import Greedings from './Greedings';
 
-export default () => {
-  return (
-    <h1>Hello from react project</h1>
-  );
+class App extends React.Component {
+
+  render() {
+    return (
+      <Greedings />
+    );
+  }
+
 }
+
+export default App;

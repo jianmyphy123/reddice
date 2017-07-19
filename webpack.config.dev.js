@@ -1,11 +1,19 @@
 import path from 'path';
+import webpack from 'webpack';
 
 export default {
-  entry: path.join(__dirname, '/client/index.js'),
+  entry: [
+    'webpack-hot-middleware/client',
+    path.join(__dirname, '/client/index.js')
+  ],
   output: {
     path: '/',
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    publicPath: '/'
   },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin()
+  ],
   module: {
     loaders: [
       {
