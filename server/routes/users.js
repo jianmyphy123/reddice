@@ -6,13 +6,13 @@ let router = express.Router();
 
 
 router.post('/', (req, res) => {
-  setTimeout(() => {
-    const { errors, isValid } = validateInput(req.body);
-    console.log(isValid);
-    if(!isValid) {console.log(errors);
-      res.json(errors);
-    }
-  }, 5000);
+  const { errors, isValid } = validateInput(req.body);
+
+  if(isValid) {
+    res.json({ success: true });
+  } else {
+    res.json(errors);
+  }
 });
 
 export default router;
