@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import NavigationBar from './NavigationBar';
 import Greedings from './Greedings';
 import SignupPage from './signup/SignupPage';
+import FlashMessagesList from './flash/FlashMessagesList';
 
 class App extends React.Component {
 
@@ -12,6 +13,7 @@ class App extends React.Component {
       <Router>
         <div className="container">
           <NavigationBar />
+          <FlashMessagesList />
           <div>
             <Switch>
               <Route exact path='/' component={Greedings} />
