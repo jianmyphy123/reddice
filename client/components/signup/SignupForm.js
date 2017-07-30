@@ -70,20 +70,15 @@ class SignupForm extends React.Component {
     if(this.isValid()) {
       this.setState({errors: {}, isLoading: true});
       this.props.userSignupRequest(this.state).then(
-        ({data}) => {
-          if(data.success) {
-            console.log(this.props);
-            this.props.addFlashMessages({
-              type: 'success',
-              text: 'You signed up successfully. Welcome!'
-            });
+        (res) => {
+          this.props.addFlashMessages({
+            type: 'success',
+            text: 'You signed up successfully. Welcome!'
+          });
 
-            this.props.history.push('/');
-          } else {
-            this.setState({errors: data, isLoading: false});
-          }
-
-        }
+          this.props.history.push('/');
+        },
+        (err) => this.setState({errors: err.response.data, isLoading: false})
       );
     }
   }
