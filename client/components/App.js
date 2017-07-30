@@ -6,6 +6,7 @@ import Greedings from './Greedings';
 import SignupPage from './signup/SignupPage';
 import LoginPage from './login/LoginPage';
 import FlashMessagesList from './flash/FlashMessagesList';
+import NewEventPage from './events/NewEventPage';
 
 class App extends React.Component {
 
@@ -20,6 +21,7 @@ class App extends React.Component {
               <Route exact path='/' component={Greedings} />
               <Route path='/signup' component={SignupPage} />
               <Route path='/login' component={LoginPage} />
+              <Route path='/new-event' component={NewEventPage} />
             </Switch>
           </div>
         </div>
