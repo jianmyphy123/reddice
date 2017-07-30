@@ -37,7 +37,7 @@ class LoginForm extends React.Component {
     if(this.isValid()) {
       this.setState({ errors: {}, isLoading: true });
       this.props.login(this.state).then(
-        ({data}) => {
+        ({data}) => {console.log(data);
           if(data.success) {
             this.props.history.push('/');
           } else {
@@ -59,6 +59,8 @@ class LoginForm extends React.Component {
     return (
       <form onSubmit={this.onSubmit}>
         <h1>Login</h1>
+
+        { errors.form && <div className="alert alert-danger">{errors.form}</div> }
 
         <TextFieldGroup
           field="identifier"
