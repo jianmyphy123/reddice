@@ -21,10 +21,10 @@ router.post('/', (req, res) => {
         }, config.jwtSecret);
         res.json({ success: true, token });
       } else {
-        res.json({ errors: { form: 'Invalid Credentials' } });
+        res.status(401).json({ "errors": { "form": 'Invalid Credentials' } });
       }
     } else {
-      res.json({ errors: { form: 'Invalid Credentials' } });
+      res.status(401).json({ "errors": { "form": 'Invalid Credentials' } });
     }
   });
 });
